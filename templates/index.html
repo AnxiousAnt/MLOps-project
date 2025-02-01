@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        form { display: inline-block; text-align: left; margin-top: 20px; }
+        select, input { width: 100%; padding: 8px; margin: 5px 0; }
+        button { padding: 10px; background-color: #28a745; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Loan Prediction Form</h2>
+    <form action="/prediction" method="post">
+        <label>Gender:</label>
+        <select name="Gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <label>Married:</label>
+        <select name="Married">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <label>Dependents:</label>
+        <select name="Dependents">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3+">3+</option>
+        </select>
+        <label>Education:</label>
+        <select name="Education">
+            <option value="Graduate">Graduate</option>
+            <option value="Not Graduate">Not Graduate</option>
+        </select>
+        <label>Self Employed:</label>
+        <select name="Self_Employed">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <label>Property Area:</label>
+        <select name="Property_Area">
+            <option value="Urban">Urban</option>
+            <option value="Semi Urban">Semi Urban</option>
+            <option value="Rural">Rural</option>
+        </select>
+        <label>Credit History:</label>
+        <select name="Credit_History">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <label>Applicant Income:</label>
+        <input type="number" name="ApplicantIncome">
+        <label>Coapplicant Income:</label>
+        <input type="number" name="CoapplicantIncome">
+        <label>Loan Amount:</label>
+        <input type="number" name="LoanAmount">
+        <label>Loan Amount Term:</label>
+        <input type="number" name="Loan_Amount_Term">
+        <button type="submit">Predict</button>
+    </form>
+    <h3>{{ pred_text }}</h3>
+    {% if plot_url %}
+        <img src="data:image/png;base64,{{ plot_url }}" alt="Prediction Plot">
+    {% endif %}
+</body>
+</html>
