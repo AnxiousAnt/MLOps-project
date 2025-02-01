@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy only necessary files
 COPY requirements.txt .
 COPY model.pkl scaler.pkl label_encoders.pkl .  
-COPY templates/ templates/
+COPY ./templates ./templates
 COPY app.py .
 
 # Install dependencies
